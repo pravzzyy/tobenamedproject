@@ -41,11 +41,16 @@ firebase.auth().onAuthStateChanged(function(user) {
      document.getElementById("logout").style.display="block";
      document.getElementById("delete").style.display="block";
      document.getElementById("logout").onclick = function(){ console.log("logout successful!!!");
-   firebase.auth().signOut(); } ;
+   firebase.auth().signOut(); 
+  document.getElementById("register-form").reset();
+  document.getElementById("login-form").reset();
+    } ;
 
  document.getElementById("delete").onclick = function(){    user.delete().then(function() {
   // User deleted.
   console.log("User: "+user.email+" deleted!!!!");
+       document.getElementById("register-form").reset();
+  document.getElementById("login-form").reset();
 }).catch(function(error) {
   // An error happened.
 }); } ;
